@@ -1,0 +1,3 @@
+[submodule "vuln-regex-detector"]
+	path = vuln-regex-detector
+	url = git@github.com:ewmson/vuln-regex-detector.git
