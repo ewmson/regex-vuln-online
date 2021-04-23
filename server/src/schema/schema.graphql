@@ -3,13 +3,18 @@
 
 
 type Query {
-  ok: Boolean!
+  regex(where: RegexWhereUniqueInput!): Regex
 }
 
 type Regex {
   id: Int!
   validationResults(after: ValidationResultWhereUniqueInput, before: ValidationResultWhereUniqueInput, first: Int, last: Int): [ValidationResult!]!
   value: String!
+}
+
+input RegexWhereUniqueInput {
+  id: Int
+  value: String
 }
 
 type ValidationResult {
