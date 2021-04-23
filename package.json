@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.15",
+    "@prisma/client": "^2.21.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,17 +12,28 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "apollo-server": "^2.23.0",
+    "graphql": "^15.5.0",
+    "nexus": "^1.0.0",
+    "nexus-plugin-prisma": "^0.34.1",
     "react": "^0.0.0-experimental-5027eb465",
     "react-dom": "^0.0.0-experimental-5027eb465",
     "react-scripts": "4.0.3",
+    "ts-node": "^9.1.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-server": "ts-node --dir server/ src/index.ts",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "_comment":  "mainly stolen from https://github.com/graphql-nexus/nexus-plugin-prisma/blob/main/examples/hello-world/package.json",
+    "nexus:reflect": "NEXUS_SHOULD_EXIT_AFTER_GENERATE_ARTIFACTS=true ts-node --dir server/ --transpile-only src/index.ts",
+    "server-dev": "ts-node-dev --dir server/ --transpile-only server/src/index.ts",
+    "server-dev:typecheck": "tsc -p server/ --watch --noEmit",
+    "server-build": "yarn nexus:reflect && tsc -p server/"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prisma": "^2.21.2",
+    "ts-node-dev": "^1.1.6"
   }
 }
