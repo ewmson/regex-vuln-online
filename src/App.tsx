@@ -1,35 +1,30 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { RegexStatusPage } from "./RegexStatusPage";
+import { Home } from "./Home";
 
-import { gql, useQuery } from "@apollo/client";
-
-const GET_REGEX = gql`
-  query GetRegex {
-    regex(where: { value: "a" }) {
-      id
-      value
-      validationResults {
-        id
-      }
-    }
-  }
-`;
 function App() {
-  const { loading, error, data } = useQuery(GET_REGEX, { pollInterval: 5000 });
-  if (loading) return <div>'Loading...'</div>;
-  if (error) {
-    return (
-      <div>
-        Error!
-        {error.message}
-        {error.extraInfo}
-      </div>
-    );
-  }
   return (
-    <div>
-      We got data: <pre>{JSON.stringify(data)}</pre>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/regex/:regexValue">
+            <RegexStatusPage />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

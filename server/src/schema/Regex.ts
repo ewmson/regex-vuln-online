@@ -1,4 +1,4 @@
-import { objectType, queryType } from "nexus";
+import { mutationType, objectType, queryType } from "nexus";
 
 export const Regex = objectType({
   name: "Regex",
@@ -6,6 +6,13 @@ export const Regex = objectType({
     t.model.id();
     t.model.value();
     t.model.validationResults({});
+    t.model.processed();
+  },
+});
+
+export const RegexMutation = mutationType({
+  definition(t) {
+    t.crud.upsertOneRegex();
   },
 });
 

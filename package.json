@@ -19,6 +19,7 @@
     "prettier": "^2.2.1",
     "react": "^0.0.0-experimental-5027eb465",
     "react-dom": "^0.0.0-experimental-5027eb465",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.2",
@@ -55,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "prisma": "^2.21.2",
     "ts-node-dev": "^1.1.6"
   }

@@ -1,7 +1,7 @@
 import { nexusPrisma } from "nexus-plugin-prisma";
 import { makeSchema } from "nexus";
 import * as path from "path";
-import { Regex, RegexQuery } from "./Regex";
+import { Regex, RegexMutation, RegexQuery } from "./Regex";
 import { ValidationResult } from "./ValidationResult";
 
 export const schema = makeSchema({
@@ -27,5 +27,5 @@ export const schema = makeSchema({
     ),
     schema: path.join(__dirname, "./schema.graphql"),
   },
-  types: [Regex, RegexQuery, ValidationResult],
+  types: [Regex, RegexQuery, RegexMutation, ValidationResult],
 });

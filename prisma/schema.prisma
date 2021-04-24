@@ -14,6 +14,10 @@ model Regex {
   id                Int                @id @default(autoincrement())
   value             String             @unique
   validationResults ValidationResult[]
+  processed         Int                @default(0)
+
+  // used only for the index on processed
+  @@index([processed])
 }
 
 model ValidationResult {
